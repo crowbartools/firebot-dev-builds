@@ -13,7 +13,7 @@ branches:
 before_install:
 - mkdir firebot
 - cd firebot
-- git clone https://github.com/crowbartools/Firebot.git firebot
+- git clone https://github.com/crowbartools/Firebot.git
 - git checkout v5
 - npm install
 - npm run build64
