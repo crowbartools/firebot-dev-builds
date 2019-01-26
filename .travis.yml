@@ -1,21 +1,19 @@
+# Build: windows nodejs 8.11
 os: windows
-
 language: node_js
-
 node_js:
     - "8.11.3"
-
 cache:
   directories:
     - "node_modules"
 
-# exclude untagged releases
+# Exclude untagged releases
 branches:
   except:
     - /^untagged-/
 
-# Download and build firebot
-before_install:
+# install deps
+install:
 - git clone https://github.com/crowbartools/Firebot.git
 - cd Firebot
 - git checkout v5
@@ -24,20 +22,12 @@ before_install:
 - npm run compile:scssGui
 - npm run compile:scssOverlay
 - cd ..
-
-# install deps
-install:
 - npm install
-
-# install grunt-cli as global
-before_script:
 - npm install -g grunt-cli
 
-# grun the default grunt task
+# run the default grunt task
 script:
 - grunt --verbose
-
-
 
 # Deploy a github release
 deploy:
@@ -48,3 +38,5 @@ deploy:
   file: "Firebot-win32-x64.zip"
   on:
     repo: crowbartools/firebot-dev-builds
+  name: Firebot dev build
+  body: Latest Firebot dev build
