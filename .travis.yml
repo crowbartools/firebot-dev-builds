@@ -16,8 +16,9 @@ branches:
 before_install:
 - git config --local user.name "CrowbarToolsRobot"
 - git config --local user.email "crowbartoolsrobot@gmail.com"
-- export BUILD_TAG=${BUILD_TAG:-$(date +"%Y-%m-%d-%H-%M-%S")}
-- git tag $BUILD_TAG
+- export BUILD_GH_TAG=build-$(date +"%Y-%m-%d-%H-%M-%S")
+- git tag $BUILD_GH_TAG
+- echo $BUILD_GH_TAG
 
 # install deps
 install:
