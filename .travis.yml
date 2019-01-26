@@ -34,6 +34,6 @@ deploy:
   provider: releases
   api_key:
     secure: w3JY8yKV1YDguBN9VhujOqkq86JIMJUE7fK/lsd1xecNwnrkVMa9S2sq3ZhgtYpMRuM9LXTfmrx4cKKJHYnMgUHkum4Sxa8OWqSO0FcKe/yW1p/OZGQ3M+mk1mRsZ0f0kI+xfwOLHkPD7CJHKsP1tIZeYPef9cSzySGweda6TjlTdHUBxG3mVkoZwrl5BK733M67egucwQMCXaGZL1lYSS4+v7sflij2fFJJybesRZFHKiNlpIXePOAvTr53p6AuP+6OKgzlwhKtOV/iQ+eCqF2vNImoTEeFeDya0M+ckp9tYjURvEN4vQCxRHWtjEsvqUEJH/B9nERReriO0d8cRZOpaWmZKXaez+lbWxiATTNonMS8lybezbcPn7r+CnwmJwLXJErCzra9F6woDISQikkh+aNTxLtrQ86IwZfFxKq9LvmNbM91WM61DlvNupj7HmgHTpD2SqFGEcmPYZh0LV19BEIV/oNGhx+I+ZLylpOUTbmT4V5zwOh4LdvaEAU7rQ/nfgAhxKhk9giL7ojUwjXnHyNIOxI6jW2SZG/0chDpJjQXJW050kVzOpIg4Lay4mc/R/kOdC1WE6inxT7+qInDJraX8rLqF/HUZzbA7Qo4B/qWMHvPbMtnCONWviq86Vil9UuKgKnepkkybNo7kcsBprVVaqJIXd/SVINmO9w=
-  file: "./firebot.zip"
+  file: "./Firebot-win32-x64.zip"
   on:
     repo: crowbartools/firebot-dev-builds
