@@ -18,11 +18,10 @@ before_install:
 - cd Firebot
 - git checkout v5
 - npm install
+- electron-packager . Firebot --out=./dist --platform=win32 --arch=x64 --electronVersion=2.0.7 --js-flags="--harmony" --asar --prune --overwrite --version-string.ProductName="Firebot" --icon=./gui/images/logo.ico --ignore=/profiles --ignore=/resources --ignore=/doc --ignore=/.vscode
 - npm run compile:scssGui
 - npm run compile:scssOverlay
-- electron-packager . Firebot --out=./dist --platform=win32 --arch=x64 --electronVersion=2.0.7 --js-flags="--harmony" --asar --prune --overwrite --version-string.ProductName="Firebot" --icon=./gui/images/logo.ico --ignore=/profiles --ignore=/resources --ignore=/doc --ignore=/.vscode
 - cd ..
-- copy.bat
 
 install:
 - npm install -g grunt-cli

@@ -4,6 +4,8 @@
     "version": "1.0.0",
     "license": "GPL-3.0",
     "dependencies": {
+        "grunt": "^1.0.3",
+        "grunt-contrib-copy": "^1.0.0",
         "grunt-zip-directories": "^1.0.1"
     }
 }
