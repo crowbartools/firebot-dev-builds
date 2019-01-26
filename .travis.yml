@@ -11,6 +11,7 @@ cache:
 branches:
   except:
     - /^untagged-/
+    - /^build-/
 
 # install deps
 install:
@@ -28,6 +29,12 @@ install:
 # run the default grunt task
 script:
 - grunt --verbose
+
+before_deploy:
+- git config --local user.name "CrowbarToolsRobot"
+- git config --local user.email "crowbartoolsrobot@gmail.com"
+- export BUILD_TAG=${BUILD_TAG:-$(date +"%Y-%m-%d-%H-%M-%S")}
+- git tag $TRAVIS_BUILD_TAG
 
 # Deploy a github release
 deploy:
