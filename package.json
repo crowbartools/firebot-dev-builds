@@ -3,6 +3,9 @@
     "author": "A Mixer Community Project",
     "version": "1.0.0",
     "license": "GPL-3.0",
+    "scripts":{
+        "test": "grunt"
+    },
     "dependencies": {
         "grunt": "^1.0.3",
         "grunt-contrib-copy": "^1.0.0",
