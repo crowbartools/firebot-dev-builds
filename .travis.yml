@@ -13,13 +13,6 @@ branches:
     - /^untagged-/
     - /^build-/
 
-before_install:
-- git config --local user.name "CrowbarToolsRobot"
-- git config --local user.email "crowbartoolsrobot@gmail.com"
-- export BUILD_GH_TAG=build-$(date +"%Y-%m-%d-%H-%M-%S")
-- git tag $BUILD_GH_TAG
-- echo $BUILD_GH_TAG
-
 # install deps
 install:
 - git clone https://github.com/crowbartools/Firebot.git
@@ -37,7 +30,13 @@ install:
 script:
 - grunt --verbose
 
-
+# Tag build
+before_deploy:
+- git config --local user.name "CrowbarToolsRobot"
+- git config --local user.email "crowbartoolsrobot@gmail.com"
+- export BUILD_GH_TAG=build-$(date +"%Y-%m-%d-%H-%M-%S")
+- git tag $BUILD_GH_TAG -a -m "Automated Dev Build"
+- git push origin --tags
 
 # Deploy a github release
 deploy:
