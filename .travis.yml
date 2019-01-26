@@ -39,4 +39,4 @@ deploy:
   on:
     repo: crowbartools/firebot-dev-builds
   name: Firebot dev build
-  body: Latest Firebot dev build
+  body: $TRAVIS_COMMIT_MESSAGE
