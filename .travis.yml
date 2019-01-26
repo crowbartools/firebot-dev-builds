@@ -24,8 +24,10 @@ before_install:
 - cd ..
 
 install:
-# - npm install -g grunt-cli
 - npm install
+
+before_script:
+- npm install -g grunt-cli
 
 script:
 - grunt
