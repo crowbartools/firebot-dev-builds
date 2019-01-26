@@ -36,7 +36,7 @@ before_deploy:
 - git config --local user.email "crowbartoolsrobot@gmail.com"
 - export BUILD_GH_TAG=build-$(date +"%Y-%m-%d-%H-%M-%S")
 - git tag $BUILD_GH_TAG -a -m "Automated Dev Build"
-- git push origin --tags
+- git push -q https://crowbartoolsrobot:$GH_PUSH_TOKEN@github.com/crowbartools/firebot-dev-builds $BUILD_GH_TAG
 
 # Deploy a github release
 deploy:
@@ -49,3 +49,4 @@ deploy:
     repo: crowbartools/firebot-dev-builds
   name: Firebot dev build
   body: $TRAVIS_COMMIT_MESSAGE
+  prerelease: true
