@@ -1,0 +1,9 @@
+{
+    "name": "firebot-dev-builds",
+    "author": "A Mixer Community Project",
+    "version": "1.0.0",
+    "license": "GPL-3.0",
+    "dependencies": {
+        "grunt-zip-directories": "^1.0.1"
+    }
+}
