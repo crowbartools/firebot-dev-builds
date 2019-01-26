@@ -16,12 +16,12 @@ branches:
 before_install:
 - git clone https://github.com/crowbartools/Firebot.git
 - cd Firebot
-- echo %CD%
+- echo $TRAVIS_BUILD_DIR
 - git checkout v5
 - npm install
 - npm run compile:scssGui
 - npm run compile:scssOverlay
-- xcopy "%CD%\resources" "%CD%\dist\Firebot-win32-x64\resources" /s /e /i /y
+- xcopy "$TRAVIS_BUILD_DIR\Firebot\resources" "$TRAVIS_BUILD_DIR\Firebot\dist\Firebot-win32-x64\resources" /s /e /i /y
 - electron-packager . Firebot --out=./dist --platform=win32 --arch=x64 --electronVersion=2.0.7 --js-flags="--harmony" --asar --prune --overwrite --version-string.ProductName="Firebot" --icon=./gui/images/logo.ico --ignore=/profiles --ignore=/resources --ignore=/doc --ignore=/.vscode
 - cd ..
 
