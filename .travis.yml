@@ -11,9 +11,8 @@ branches:
     - /^untagged-/
 
 before_install:
-- mkdir firebot
-- cd firebot
 - git clone https://github.com/crowbartools/Firebot.git
+- cd firebot
 - git checkout v5
 - npm install
 - npm run build64
@@ -25,12 +24,6 @@ install:
 
 scripts:
 - grunt
-
-before_deply:
-- git config --local user.name "CrowbarTools"
-- git config --local user.email "crowbartools@gmail.com"
-- export TRAVIS_TAG=${build:-$(date +'%Y%m%d%H%M%S')}
-- git tag $TRAVIS_TAG
 
 deploy:
   provider: releases
