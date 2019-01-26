@@ -1,4 +1,7 @@
+os: windows
+
 language: node_js
+
 node_js:
     - "8.11.3"
 
@@ -12,7 +15,6 @@ branches:
 
 before_install:
 - git clone https://github.com/crowbartools/Firebot.git
-- ls
 - cd Firebot
 - git checkout v5
 - npm install
