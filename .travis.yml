@@ -15,13 +15,13 @@ branches:
 
 before_install:
 - npm install
-- npm -vs2017 install --global --production windows-build-tools
 - npm install -g grunt-cli node-gyp
 
 # install deps
 install:
 - git clone --depth=1 --branch=v5 https://github.com/crowbartools/Firebot.git
 - cd Firebot
+- npm install
 - npm run rebuild
 - electron-packager . Firebot --out=./dist --platform=win32 --arch=x64 --electronVersion=2.0.7 --js-flags="--harmony" --asar --prune --overwrite --version-string.ProductName="Firebot" --icon=./gui/images/logo.ico --ignore=/profiles --ignore=/resources --ignore=/doc --ignore=/.vscode
 - npm run compile:scssGui
