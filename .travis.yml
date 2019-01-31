@@ -13,26 +13,31 @@ branches:
     - /^untagged-/
     - /^build-/
 
+# Install grunt and node-gyp
 before_install:
 - npm install
 - npm install -g grunt-cli node-gyp
 
-# install deps
 install:
+# Download Firebot
 - git clone --depth=1 --branch=v5 https://github.com/crowbartools/Firebot.git
 - cd Firebot
+# Install Firebot's deps
 - npm install
+# Rebuild robotjs
 - npm run rebuild
+# Compile scss
 - npm run compile:scssGui
 - npm run compile:scssOverlay
+# run packager
 - electron-packager . Firebot --out=./dist --platform=win32 --arch=x64 --electronVersion=2.0.7 --js-flags="--harmony" --asar --prune --overwrite --version-string.ProductName="Firebot" --icon=./gui/images/logo.ico --ignore=/profiles --ignore=/resources --ignore=/doc --ignore=/.vscode
 - cd ..
 
-# run the default grunt task
+# Run grunt to move /resources/ into dist folder and zip the dist folder
 script:
 - grunt --verbose
 
-# Tag build
+# Tag build as build-YYYY-DD-MM-hh-mm-ss
 before_deploy:
 - git config --local user.name "CrowbarToolsRobot"
 - git config --local user.email "crowbartoolsrobot@gmail.com"
