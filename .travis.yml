@@ -2,7 +2,7 @@
 os: windows
 language: node_js
 node_js:
-    - "8.11.3"
+    - "12.14.1"
 cache:
   directories:
     - "node_modules"
@@ -17,6 +17,7 @@ branches:
 before_install:
 - npm install
 - npm install -g grunt-cli node-gyp
+- for /f "delims=" %P in ('npm prefix -g') do npm config set node_gyp "%P\node_modules\node-gyp\bin\node-gyp.js"
 
 install:
 # Download Firebot
@@ -30,7 +31,7 @@ install:
 - npm run compile:scssGui
 - npm run compile:scssOverlay
 # run packager
-- electron-packager . Firebot --out=./dist --platform=win32 --arch=x64 --electronVersion=2.0.7 --js-flags="--harmony" --asar --prune --overwrite --version-string.ProductName="Firebot" --icon=./gui/images/logo.ico --ignore=/profiles --ignore=/resources --ignore=/doc --ignore=/.vscode
+- electron-packager . Firebot --out=./dist --platform=win32 --arch=x64 --electronVersion=7.1.9 --js-flags="--harmony" --asar --prune --overwrite --version-string.ProductName="Firebot" --icon=./gui/images/logo.ico --ignore=/profiles --ignore=/resources --ignore=/doc --ignore=/.vscode
 - cd ..
 
 # Run grunt to move /resources/ into dist folder and zip the dist folder
